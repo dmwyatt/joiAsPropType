@@ -1,3 +1,5 @@
+export const joiSchemaAsPropType = (schema) => createChainableTypeChecker(_joiSchemaAsPropType(schema));
+
 // get a proptype for validating that a value matches a joi schema
 function _joiSchemaAsPropType(schema) {
   return (props, propName, componentName, location, propFullName) => {
@@ -29,7 +31,7 @@ const ReactPropTypeLocationNames = {
  * @param validate: function
  * @returns {function(this:null)}
  */
-export function createChainableTypeChecker(validate) {
+function createChainableTypeChecker(validate) {
   function checkType(isRequired,
                      props,
                      propName,
